@@ -1,12 +1,53 @@
 {
-  "repo_url": "http://repo.vitexsoftware.com",
+  "repo_url": "https://repo.vitexsoftware.com",
   "docs_url": "/doc/ishtaria-doc/html/index.html",
   "github": "https://github.com/VitexSoftware",
-  "play": ["ishtaria-client"],
-  "host": ["ishtaria-server", "ishtaria-admin", "ishtaria-worldgen", "ishtaria-content"],
-  "packages": [
-    "ishtaria-client", "ishtaria-server", "ishtaria-admin", "ishtaria-worldgen",
-    "ishtaria-content", "ishtaria-datadisk-endland", "ishtaria-protocol", "ishtaria-doc"
+  "play": [
+    "ishtaria-client"
   ],
-  "sources": {"ishtaria-doc": "ishtaria-docs"}
+  "host": [
+    "ishtaria-server",
+    "ishtaria-admin",
+    "ishtaria-worldgen",
+    "ishtaria-content"
+  ],
+  "packages": [
+    "ishtaria-client",
+    "ishtaria-server",
+    "ishtaria-admin",
+    "ishtaria-worldgen",
+    "ishtaria-content",
+    "ishtaria-datadisk-endland",
+    "ishtaria-protocol",
+    "ishtaria-doc"
+  ],
+  "sources": {
+    "ishtaria-doc": "ishtaria-docs"
+  },
+  "release": {
+    "repo": "https://github.com/VitexSoftware/ishtaria-client/releases",
+    "tag": "v0.1.0",
+    "files": [
+      {
+        "file": "ishtaria-client_0.1.0_amd64.deb",
+        "label": "dl_f_deb"
+      },
+      {
+        "file": "ishtaria-client.linux-x86_64",
+        "label": "dl_f_linux_x86"
+      },
+      {
+        "file": "ishtaria-client.linux-arm64",
+        "label": "dl_f_linux_arm"
+      },
+      {
+        "file": "ishtaria-client.windows-x86_64.exe",
+        "label": "dl_f_windows"
+      },
+      {
+        "file": "ishtaria-client.macos.zip",
+        "label": "dl_f_macos"
+      }
+    ]
+  }
 }

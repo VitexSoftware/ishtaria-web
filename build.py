@@ -68,8 +68,9 @@ def index(t, site):
 def download(t, site):
     repo = site["repo_url"]
     setup = (
-        f'echo "deb {repo} $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list\n'
-        f"sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg {repo}/keyring.gpg\n"
+        f"sudo wget -O /usr/share/keyrings/vitexsoftware.gpg {repo}/KEY.gpg\n"
+        f'echo "deb [signed-by=/usr/share/keyrings/vitexsoftware.gpg] {repo} $(lsb_release -sc) main games" '
+        "| sudo tee /etc/apt/sources.list.d/vitexsoftware.list\n"
         "sudo apt update"
     )
     play = "sudo apt install " + " ".join(site["play"])
@@ -80,11 +81,25 @@ def download(t, site):
         f'{e(site["sources"].get(p, p))}</a></td></tr>'
         for p in site["packages"]
     )
+    rel = site["release"]
+    base = f'{rel["repo"]}/download/{rel["tag"]}'
+    files = "".join(
+        f'<tr><td><a href="{e(base)}/{e(f["file"])}"><code>{e(f["file"])}</code></a></td>'
+        f'<td>{e(t[f["label"]])}</td></tr>'
+        for f in rel["files"]
+    )
+    direct = (
+        f'<h2>{e(t["dl_direct_h"])}</h2><p>{e(t["dl_direct_p"])}</p>'
+        f'<div class="scroll"><table><thead><tr><th>{e(t["dl_col_file"])}</th><th>{e(t["dl_col_for"])}</th></tr></thead>'
+        f'<tbody>{files}</tbody></table></div>'
+        f'<p><a href="{e(rel["repo"])}/tag/{e(rel["tag"])}">{e(t["dl_all_releases"])}</a></p>'
+    )
     return f"""<h1>{e(t["dl_title"])}</h1><p class="lead">{e(t["dl_lead"])}</p>
 <h2>{e(t["dl_step1_h"])}</h2><pre><code>{e(setup)}</code></pre>
 <h2>{e(t["dl_step2_h"])}</h2>
 <div class="grid"><article><h3>{e(t["dl_play"])}</h3><p>{e(t["dl_play_p"])}</p><pre><code>{e(play)}</code></pre></article>
 <article><h3>{e(t["dl_host"])}</h3><p>{e(t["dl_host_p"])}</p><pre><code>{e(host)}</code></pre></article></div>
+{direct}
 <h2>{e(t["dl_table_h"])}</h2>
 <div class="scroll"><table><thead><tr><th>{e(t["dl_col_package"])}</th><th>{e(t["dl_col_what"])}</th><th>{e(t["dl_col_source"])}</th></tr></thead>
 <tbody>{rows}</tbody></table></div>

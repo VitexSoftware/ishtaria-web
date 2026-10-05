@@ -42,5 +42,15 @@
   "pkg_ishtaria-protocol": "Federační schémata a příklady.",
   "pkg_ishtaria-doc": "Dokumentace v HTML.",
   "footer_license": "Server AGPL-3.0, kód MIT, obsah a dokumentace CC BY-SA 4.0. Autory grafiky najdete v klientovi.",
-  "footer_lang": "English"
+  "footer_lang": "English",
+  "dl_direct_h": "Přímé stažení (klient v0.1.0)",
+  "dl_direct_p": "Samostatné sestavení klienta z vydání na GitHubu. Podporovaný způsob instalace je balíček pro Debian výše; ostatní sestavení nejsou otestovaná a buildy pro Windows a macOS nejsou podepsané, takže počítejte s varováním systému.",
+  "dl_col_file": "Soubor",
+  "dl_col_for": "Pro",
+  "dl_all_releases": "Všechna vydání a poznámky",
+  "dl_f_deb": "Balíček pro Debian / Ubuntu x86-64",
+  "dl_f_linux_x86": "Linux x86-64, samostatný",
+  "dl_f_linux_arm": "Linux arm64, samostatný",
+  "dl_f_windows": "Windows x86-64 (nepodepsaný)",
+  "dl_f_macos": "macOS, Apple Silicon i Intel (nepodepsaný)"
 }

@@ -11,7 +11,7 @@ Any imagery must come from the approved sources listed in the workspace `AGENTS.
 
 | Path | Purpose |
 | --- | --- |
-| `site.json` | Repository URL, package list and which packages are for playing/hosting |
+| `site.json` | Repository URL, package list, which packages are for playing/hosting, and the client release files offered for direct download |
 | `i18n/en.json`, `i18n/cs.json` | All page text; both files must have the same keys |
 | `build.py` | Generates `build/html/` (English at `/`, Czech at `/cs/`) |
 | `static/style.css` | Styling (light and dark via `prefers-color-scheme`) |
@@ -32,8 +32,8 @@ make serve    # http://127.0.0.1:8080
 ## Installation
 
 ```sh
-echo "deb http://repo.vitexsoftware.com $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
-sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.com/keyring.gpg
+sudo wget -O /usr/share/keyrings/vitexsoftware.gpg https://repo.vitexsoftware.com/KEY.gpg
+echo "deb [signed-by=/usr/share/keyrings/vitexsoftware.gpg] https://repo.vitexsoftware.com $(lsb_release -sc) main games" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
 sudo apt update
 sudo apt install ishtaria-web
 ```
