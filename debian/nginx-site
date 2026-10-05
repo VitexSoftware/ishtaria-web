@@ -1,0 +1,23 @@
+# Example site for the Ishtaria portal. Enable with:
+#   ln -s /etc/nginx/sites-available/ishtaria-web /etc/nginx/sites-enabled/
+# Put TLS in front of it (certbot or your proxy) before exposing it publicly.
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+
+    root /usr/share/ishtaria-web/html;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Documentation from the ishtaria-doc package, if installed.
+    location /doc/ishtaria-doc/ {
+        alias /usr/share/doc/ishtaria-doc/;
+    }
+
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy no-referrer always;
+}

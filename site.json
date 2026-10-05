@@ -1,0 +1,12 @@
+{
+  "repo_url": "http://repo.vitexsoftware.com",
+  "docs_url": "/doc/ishtaria-doc/html/index.html",
+  "github": "https://github.com/VitexSoftware",
+  "play": ["ishtaria-client"],
+  "host": ["ishtaria-server", "ishtaria-admin", "ishtaria-worldgen", "ishtaria-content"],
+  "packages": [
+    "ishtaria-client", "ishtaria-server", "ishtaria-admin", "ishtaria-worldgen",
+    "ishtaria-content", "ishtaria-datadisk-endland", "ishtaria-protocol", "ishtaria-doc"
+  ],
+  "sources": {"ishtaria-doc": "ishtaria-docs"}
+}

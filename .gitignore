@@ -1,0 +1,7 @@
+/build
+/debian/.debhelper/
+/debian/ishtaria-web/
+/debian/files
+/debian/*.substvars
+/debian/debhelper-build-stamp
+__pycache__/
