@@ -26,10 +26,10 @@
   },
   "release": {
     "repo": "https://github.com/VitexSoftware/ishtaria-client/releases",
-    "tag": "v0.1.0",
+    "tag": "v0.2.0",
     "files": [
       {
-        "file": "ishtaria-client_0.1.0_amd64.deb",
+        "file": "ishtaria-client_0.2.0_amd64.deb",
         "label": "dl_f_deb"
       },
       {
