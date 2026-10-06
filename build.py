@@ -35,11 +35,16 @@ def layout(t, site, lang, page, body):
 <title>{e(t["name"])} – {e(t["nav_" + ("home" if page == "index" else page)])}</title>
 <meta name="description" content="{e(t["tagline"])}">
 <link rel="stylesheet" href="{prefix}style.css">
+<link rel="icon" href="{prefix}favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="{prefix}apple-touch-icon.png">
+<meta property="og:title" content="{e(t["name"])}">
+<meta property="og:description" content="{e(t["tagline"])}">
+<meta property="og:image" content="{prefix}og-image.jpg">
 <link rel="alternate" hreflang="{other}" href="{switch}">
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="index.html">{e(t["name"])}</a>
+  <a class="brand" href="index.html"><img src="{prefix}logo.png" alt="" width="32" height="32">{e(t["name"])}</a>
   <nav>{nav}<a href="{e(site["docs_url"])}">{e(t["nav_docs"])}</a>
   <a class="lang" lang="{other}" hreflang="{other}" href="{switch}">{e(t["footer_lang"])}</a></nav>
 </header>
@@ -112,7 +117,8 @@ def main():
     if out.exists():
         shutil.rmtree(out)
     (out / "cs").mkdir(parents=True)
-    shutil.copy(ROOT / "static" / "style.css", out / "style.css")
+    for asset in (ROOT / "static").iterdir():
+        shutil.copy(asset, out / asset.name)
     builders = {"index": index, "download": download}
     for lang in LANGS:
         t = json.loads((ROOT / "i18n" / f"{lang}.json").read_text(encoding="utf-8"))
