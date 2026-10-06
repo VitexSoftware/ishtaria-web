@@ -1,3 +1,9 @@
+ishtaria-web (0.1.2) unstable; urgency=medium
+
+  * Add in-game screenshots to the home page.
+
+ -- Vítězslav Dvořák <cybervitexus@gmail.com>  Wed, 07 Oct 2026 00:10:00 +0200
+
 ishtaria-web (0.1.1) unstable; urgency=medium
 
   * Point download page at client v0.2.0.

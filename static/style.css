@@ -28,3 +28,9 @@ code { font-family:ui-monospace,monospace; font-size:.92em; }
 table { border-collapse:collapse; width:100%; }
 th, td { text-align:left; padding:.5rem .7rem; border-bottom:1px solid var(--line); }
 footer { color:var(--muted); font-size:.9rem; border-top:1px solid var(--line); margin-top:2rem; }
+
+.shots { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1rem; }
+.shots figure { margin:0; }
+.shots img { width:100%; height:auto; border-radius:.6rem; border:1px solid var(--line); display:block; }
+.shots figcaption { font-size:.9rem; opacity:.8; margin-top:.4rem; }
+.shots { margin-bottom:1.5rem; }
